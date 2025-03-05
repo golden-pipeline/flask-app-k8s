@@ -10,4 +10,4 @@ spec:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-  type: NodePort  # Pode ser LoadBalancer se precisar de acesso externo
+  type: LoadBalancer  # Pode ser LoadBalancer se precisar de acesso externo
