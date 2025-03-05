@@ -3,11 +3,14 @@ kind: Service
 metadata:
   name: flask-app-service
   namespace: flask-app-dev
+  labels:
+    app: flask-app-service   # Label para identificação
 spec:
   selector:
-    app: flask-app
+    app: flask-app           # Esse label deve estar nos Pods da sua aplicação
   ports:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-  type: LoadBalancer  # Pode ser LoadBalancer se precisar de acesso externo
+      name: metrics          # Nome que será referenciado no ServiceMonitor
+  type: LoadBalancer
