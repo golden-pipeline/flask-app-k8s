@@ -7,3 +7,6 @@ data:
   FLASK_ENV: "production"
   LOG_LEVEL: "info"
   PROMETHEUS_METRICS_ENABLED: "true"
+  POSTGRES_DB: "flask-app-db"
+  POSTGRES_HOST: "postgres-service.postgres"
+  POSTGRES_PORT: "5432"
