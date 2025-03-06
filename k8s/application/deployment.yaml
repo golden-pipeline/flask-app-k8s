@@ -18,34 +18,11 @@ spec:
           image: nicolascf/flask-app:1.0.0-102983a
           ports:
             - containerPort: 5000
-          env:
-            - name: ENVIRONMENT
-              value: "production"
-            - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  name: flask-app-config
-                  key: POSTGRES_DB
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: flask-app-config
-                  key: POSTGRES_HOST
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: flask-app-config
-                  key: POSTGRES_PORT
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: flask-app-secret
-                  key: POSTGRES_USER
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: flask-app-secret
-                  key: POSTGRES_PASSWORD
+          envFrom:
+          - secretRef:
+              name: flask-app-secret
+          - configMapRef:
+              name: flask-app-config
           volumeMounts:
             - name: postgres-data
               mountPath: /var/lib/postgresql/data
