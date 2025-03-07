@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask
-  namespace: flask-backend
+  name: react
+  namespace: react-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask
+      app: react
   template:
     metadata:
       labels:
-        app: flask
+        app: react
     spec:
       containers:
-        - name: flask
-          image: nicolascf/flask:1.0.0-dc22548
+        - name: react
+          image: nicolascf/react:1.0.0-dc22548
           ports:
             - containerPort: 5000
           envFrom:
           - secretRef:
-              name: flask-secret
+              name: react-secret
           - configMapRef:
-              name: flask-config
+              name: react-config
           volumeMounts:
             - name: postgres-data
               mountPath: /var/lib/postgresql/data
