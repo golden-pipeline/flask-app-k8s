@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-frontend
+  namespace: react-frontend
+  labels:
+    app: react-frontend-service   # Label para identificação
+spec:
+  selector:
+    app: react           # Esse label deve estar nos Pods da sua aplicação
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 32000
+  type: NodePort
