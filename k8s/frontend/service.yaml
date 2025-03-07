@@ -9,8 +9,8 @@ spec:
   selector:
     app: react           # Esse label deve estar nos Pods da sua aplicação
   ports:
-    - protocol: TCP
+    - name: http
       port: 80
-      targetPort: 3001
-      name: metrics          # Nome que será referenciado no ServiceMonitor
+      targetPort: 80
+      nodePort: 3001
   type: NodePort
