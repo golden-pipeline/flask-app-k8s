@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: react
-          image: nicolascf/react:
+          image: nicolascf/react:0.0.0-1921103
           ports:
             - containerPort: 80
           envFrom:
