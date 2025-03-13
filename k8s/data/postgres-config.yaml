@@ -4,6 +4,6 @@ metadata:
   name: postgres-config
   namespace: postgres
 data:
-  DB_NAME: "ecommerce"
-  DB_HOST: "postgres-service.postgres"
-  DB_PORT: "5432"
+  POSTGRES_DB: "ecommerce"
+  POSTGRES_HOST: "postgres-service.postgres"
+  POSTGRES_PORT: "5432"
