@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ecommerce-service
+  namespace: ecommerce
+  labels:
+    app: fake-shop-service   # Label para identificação
 spec:
   selector:
     app: ecommerce
@@ -9,4 +12,5 @@ spec:
   - protocol: TCP
     port: 80          # Porta de acesso externa
     targetPort: 5000  # Porta que o Flask está escutando no container
+    name: metrics
   type: NodePort
