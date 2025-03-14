@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ecommerce
-          image: nicolascf/fake-shop:0.0.0-688f4d0
+          image: nicolascf/fake-shop:0.0.0-65f0ad6
           ports:
             - containerPort: 5432
           env:
